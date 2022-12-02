@@ -1,0 +1,45 @@
+{
+  "name": "ReacTo-Do",
+  "version": "1.0.0",
+  "description": "React To Do List",
+  "scripts": {
+    "dev": "npm-run-all --parallel sass-dev postcss-dev parcel-dev server",
+    "build": "npm-run-all --sequential clean sass-build postcss-build parcel-build",
+    "sass-dev": "sass sass:temp --watch --embed-source-map",
+    "sass-build": "sass sass:temp --embed-source-map",
+    "postcss-dev": "postcss temp/*.css --dir css --use postcss-preset-env --map --watch",
+    "postcss-build": "postcss temp/*.css --dir css --use postcss-preset-env cssnano --map",
+    "server": "browser-sync start --server --watch --files '*.html, css/*.css, js/dist/*.js' ",
+    "parcel-dev": "parcel watch js/src/app.jsx --dist-dir js/dist",
+    "parcel-build": "parcel build js/src/app.jsx --dist-dir js/dist",
+    "clean": "del-cli js/dist/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Archento/React-To-Do.git"
+  },
+  "author": "Archento",
+  "homepage": "https://github.com/Archento/React-To-Do",
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "cssnano": "^5.1.12",
+    "del-cli": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.6.2",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^10.0.0",
+    "postcss-preset-env": "^7.7.2",
+    "process": "^0.11.10",
+    "sass": "^1.54.1",
+    "standard": "^17.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^18.2.0"
+  }
+}
